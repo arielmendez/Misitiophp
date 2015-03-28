@@ -1,15 +1,10 @@
 <?php
-include './clases/Coneccion.php';
-include './clases/Alumno.php';
-include './clases/AlumnoControlador.php';
+
 $con = new Coneccion();
 $alumnoA = new AlumnoControlador();
 $accion= $_REQUEST['accion'];
 switch ($accion){
   case 'save'
-
-//if ($con->conectar()){
-
     if(isset($_REQUEST['bot'])){
     $alumnoA->setId('NULL');
     $alumnoA->setNombre($_REQUEST['nombre']);
@@ -33,11 +28,11 @@ switch ($accion){
 break;
 case 'con':
   $sql='SELECT * FROM ALUMNO';
-  print consultaD($con,$sql,2,TRUE);
+  print consultaD($con, $sql, 2, TRUE);
   break;
   case 'del':
   $sql='DELETE from alumno WHERE id='.$_REQUEST['id'].';';
-  print consultaA($con,$sql);
+  print consultaA($con, $sql);
   break;
   default:
   print 'No hay Accion que realizar';
@@ -77,7 +72,7 @@ function consultaA($coneccion,$sql){
     $ejecutor->beginTransaction();
     $fila=$ejecutor->exec($sql);
     $ejecutor->commint();
-//.................................
+
     if($fila == 0){
       $msgok = $msgerror. "<br> No existecoincidencia para realizar la accion sobre los "
     }
@@ -99,7 +94,7 @@ try{
   $datos->setfetchMode($modo);
 
    if($presentacion == TRUE){
-    //...........
+
     $devolucion.="<table border=1>";
    }ele{
 
@@ -116,7 +111,7 @@ try{
    }
 
 } catch (Exception $exc){
-  //..................................
+
   return "No se pudieron Consultar los Datos <br/>".$exec->getMessage();
 }
   return $devolucion;

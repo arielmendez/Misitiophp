@@ -1,10 +1,11 @@
+<?php include './clases/Coneccion.php';?>
 <html>
     <head>
         <meta charset="utf-8">
         <title>Formulario de Captura de datos</title>
     </head>
     <body>
-        <form action="manejadorAlumno.php" method="post">
+        <form action="manejadorAlumno.php?accion=save" method="post">
              <table>
             <tr>
                 <td>
@@ -53,8 +54,17 @@
                 <td>
                     <select name='seccion'>
                         <option value=""></option>
-                        <option value="sistema">Sistemas</option>
-                        <option value="manto">Mantenimiento</option>
+                        <?php 
+                        $sql = "SELECT id,nombre FROM seccion;";
+                        $datos = consultaD($con, $sql);
+                        foreach ($datos as $value){
+                            print "<option value='";
+                            print $value['id'];
+                            print "'>";
+                            print $value['nombre'];
+                            print "</option>";
+                        }
+                         ?>
                     </select>
                 </td>
             </tr>

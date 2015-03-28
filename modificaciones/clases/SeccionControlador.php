@@ -6,7 +6,7 @@ class SeccionControlador extends seccion{
 		$variableSql.="VALUES (";
 		$variableSql.="'".$objSeccion[0]."',";
 		$variableSql.="'".$objSeccion[1]."',";	
-		$variableSql.="'".$objSeccion[2]."',";
+		$variableSql.="'".$objSeccion[2]."');";
 		return consultaA($con,$variableSql);
 	}
 

@@ -13,7 +13,7 @@ class AlumnoControlador extends Alumno{
         $variableSql.="'".$objAlumno[4]."',";
         $variableSql.="'".$objAlumno[5]."',";
         $variableSql.="'".$objAlumno[6]."');";
-        return consultaA($con,$variableSql);
+        return consultaA($con, $variableSql);
         }
     }
     
